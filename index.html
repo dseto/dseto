@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MURAL DE NOTÍCIAS — 28.07.2026</title>
+<style>
+  :root{
+    --preto:#0a0a0a;
+    --branco:#ffffff;
+    --neon-amarelo:#ffe600;
+    --neon-rosa:#ff3ea5;
+    --neon-verde:#00e572;
+    --neon-azul:#00c2ff;
+    --sombra:8px 8px 0 var(--preto);
+    --borda:4px solid var(--preto);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--neon-amarelo);
+    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color:var(--preto);
+    background-image:radial-gradient(var(--preto) 1.5px, transparent 1.5px);
+    background-size:28px 28px;
+    min-height:100vh;
+  }
+  header{
+    background:var(--preto);
+    color:var(--branco);
+    padding:32px 24px;
+    border-bottom:8px solid var(--neon-rosa);
+  }
+  .header-inner{max-width:1200px;margin:0 auto;}
+  h1{
+    font-family:Arial Black,'Arial Bold',Arial,sans-serif;
+    font-weight:900;
+    font-size:clamp(2.2rem,7vw,4.5rem);
+    line-height:.95;
+    letter-spacing:-2px;
+    text-transform:uppercase;
+  }
+  h1 .destaque{color:var(--neon-amarelo);}
+  .data-badge{
+    display:inline-block;
+    background:var(--neon-rosa);
+    color:var(--preto);
+    font-weight:900;
+    padding:6px 14px;
+    margin-top:14px;
+    border:3px solid var(--branco);
+    box-shadow:5px 5px 0 var(--neon-amarelo);
+    font-size:1rem;
+    text-transform:uppercase;
+  }
+  .contador{
+    margin-top:10px;
+    font-size:.85rem;
+    color:#bbb;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  nav{
+    max-width:1200px;
+    margin:28px auto 0;
+    padding:0 24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .filtro{
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:1rem;
+    padding:12px 22px;
+    background:var(--branco);
+    border:var(--borda);
+    box-shadow:6px 6px 0 var(--preto);
+    cursor:pointer;
+    transition:transform .08s,box-shadow .08s;
+  }
+  .filtro:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--preto);}
+  .filtro:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--preto);}
+  .filtro.ativo[data-tema="todos"]{background:var(--preto);color:var(--branco);}
+  .filtro.ativo[data-tema="ia"]{background:var(--neon-azul);}
+  .filtro.ativo[data-tema="corinthians"]{background:var(--neon-verde);}
+  .filtro.ativo[data-tema="hxh"]{background:var(--neon-rosa);}
+  main{
+    max-width:1200px;
+    margin:32px auto 60px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
+    gap:28px;
+  }
+  .card{
+    background:var(--branco);
+    border:var(--borda);
+    box-shadow:var(--sombra);
+    display:flex;
+    flex-direction:column;
+    transition:opacity .25s,filter .25s,transform .08s;
+  }
+  .card:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--preto);}
+  .card.lido{opacity:.35;filter:grayscale(1);}
+  .card-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:var(--borda);
+    padding:10px 14px;
+  }
+  .tag{
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:.75rem;
+    padding:4px 10px;
+    border:3px solid var(--preto);
+  }
+  .tag-ia{background:var(--neon-azul);}
+  .tag-corinthians{background:var(--neon-verde);}
+  .tag-hxh{background:var(--neon-rosa);}
+  .badge-principal{
+    font-size:.7rem;
+    font-weight:900;
+    background:var(--preto);
+    color:var(--neon-amarelo);
+    padding:4px 8px;
+    text-transform:uppercase;
+  }
+  .card-corpo{padding:18px 16px;flex:1;display:flex;flex-direction:column;gap:12px;}
+  .card h2{
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    font-size:1.25rem;
+    line-height:1.1;
+    text-transform:uppercase;
+    letter-spacing:-.5px;
+  }
+  .card p{font-size:.92rem;line-height:1.45;font-weight:500;}
+  .meta{
+    font-size:.75rem;
+    font-weight:700;
+    text-transform:uppercase;
+    color:#444;
+    margin-top:auto;
+  }
+  .card-acoes{
+    display:flex;
+    border-top:var(--borda);
+  }
+  .card-acoes a,.card-acoes button{
+    flex:1;
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:.8rem;
+    padding:12px 8px;
+    background:var(--branco);
+    border:none;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    color:var(--preto);
+  }
+  .card-acoes a{border-right:var(--borda);background:var(--neon-amarelo);}
+  .card-acoes a:hover{background:var(--preto);color:var(--neon-amarelo);}
+  .card-acoes button:hover{background:var(--preto);color:var(--branco);}
+  .card.lido .card-acoes button{background:var(--neon-verde);}
+  .vazio{
+    grid-column:1/-1;
+    background:var(--branco);
+    border:var(--borda);
+    box-shadow:var(--sombra);
+    padding:40px;
+    text-align:center;
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:1.3rem;
+    display:none;
+  }
+  footer{
+    background:var(--preto);
+    color:var(--branco);
+    text-align:center;
+    padding:20px;
+    font-weight:700;
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-top:8px solid var(--neon-azul);
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <h1>Mural de<br><span class="destaque">Notícias_</span></h1>
+    <span class="data-badge">Terça-Feira — 28.07.2026 — Últimas 24h</span>
+    <div class="contador" id="contador"></div>
+  </div>
+</header>
+
+<nav id="filtros">
+  <button class="filtro ativo" data-tema="todos">Todos</button>
+  <button class="filtro" data-tema="ia">🤖 IA</button>
+  <button class="filtro" data-tema="corinthians">⚽ Corinthians</button>
+  <button class="filtro" data-tema="hxh">🎌 Hunter x Hunter</button>
+</nav>
+
+<main id="grade">
+  <div class="vazio" id="vazio">Nenhuma notícia neste filtro.</div>
+</main>
+
+<footer>Gerado automaticamente para Daniel — Dados coletados em 28/07/2026</footer>
+
+<script>
+const NOTICIAS = [
+  {
+    tema: "ia",
+    principal: true,
+    titulo: "Google indexa por erro conversas privadas de usuários no Claude da Anthropic",
+    resumo: "Vazamento expôs historiais médicos, documentos corporativos e dados pessoais através da indexação de links compartilhados de chats e artefatos do Claude.",
+    fonte: "El Español / TechCrunch",
+    url: "https://www.elespanol.com",
+    quando: "28/07/2026"
+  },
+  {
+    tema: "ia",
+    titulo: "Tensão internacional: EUA acusa Moonshot AI de destilar modelo da Anthropic",
+    resumo: "Autoridades norte-americanas alegam uso indevido do modelo Fable para treinamento do Kimi K3, sinalizando possíveis sanções comerciais.",
+    fonte: "TechCrunch / CNN",
+    url: "https://techcrunch.com",
+    quando: "27/07/2026"
+  },
+  {
+    tema: "ia",
+    titulo: "OpenAI e Anthropic ficam de fora da Open Secure AI Alliance liderada pela Nvidia",
+    resumo: "Coalizão focada em cibersegurança e modelos abertos reúne 25 gigantes como Meta e IBM, enquanto líderes de modelos proprietários mantêm cautela.",
+    fonte: "Tom's Hardware / Axios",
+    url: "https://www.tomshardware.com",
+    quando: "27/07/2026"
+  },
+
+  {
+    tema: "corinthians",
+    principal: true,
+    titulo: "Corinthians empata com o Bahia e prepara retorno de Garro contra o Athletico-PR",
+    resumo: "Elenco se reapresentou no CT Joaquim Grava para ajustar o time que enfrenta o Furacão nesta quinta-feira na Neo Química Arena.",
+    fonte: "Meu Timão",
+    url: "https://www.meutimao.com.br",
+    quando: "27/07/2026"
+  },
+  {
+    tema: "corinthians",
+    titulo: "Vitinho sofre lesão meniscal no joelho e passará por cirurgia",
+    resumo: "Atacante foi diagnosticado após os treinos recentes e desfalcará o Timão nas próximas semanas durante a recuperação médica.",
+    fonte: "Gazeta Esportiva / Meu Timão",
+    url: "https://www.gazetaesportiva.com",
+    quando: "27/07/2026"
+  },
+  {
+    tema: "corinthians",
+    titulo: "Dúvida na lateral esquerda: Angileri suspenso e Matheus Bidu sob avaliação",
+    resumo: "Fernando Diniz estuda improvisar atletas no setor caso Bidu não se recupere a tempo das dores no púbis.",
+    fonte: "Meu Timão",
+    url: "https://www.meutimao.com.br",
+    quando: "28/07/2026"
+  },
+
+  {
+    tema: "hxh",
+    principal: true,
+    titulo: "Capítulo 415 de Hunter x Hunter é lançado e mantém ritmo semanal",
+    resumo: "Obra de Yoshihiro Togashi prossegue na Shonen Jump em lote semanal de capítulos após retorno do hiato.",
+    fonte: "Crunchyroll / Manga Plus",
+    url: "https://www.crunchyroll.com",
+    quando: "26/07/2026"
+  },
+  {
+    tema: "hxh",
+    titulo: "Volume 39 de Hunter x Hunter chega às bancas no Japão",
+    resumo: "Novo tankobon compila os capítulos iniciais do arco da Guerra Sucessória após quase dois anos sem lançamentos em volume.",
+    fonte: "Tokyo Weekender",
+    url: "https://www.tokyoweekender.com",
+    quando: "27/07/2026"
+  },
+  {
+    tema: "hxh",
+    titulo: "Togashi confirma avanço de manuscritos até o capítulo 421",
+    resumo: "Autor publicou atualizações em sua conta oficial do X garantindo que a produção do atual lote de capítulos segue adiantada.",
+    fonte: "ScreenRant / Popverse",
+    url: "https://screenrant.com",
+    quando: "27/07/2026"
+  }
+];
+
+const NOMES = {ia:"IA", corinthians:"Corinthians", hxh:"Hunter x Hunter"};
+const lidos = new Set();
+let filtroAtual = "todos";
+
+const grade = document.getElementById("grade");
+const vazio = document.getElementById("vazio");
+const contador = document.getElementById("contador");
+
+function render(){
+  grade.querySelectorAll(".card").forEach(c => c.remove());
+  const visiveis = NOTICIAS.filter(n => filtroAtual === "todos" || n.tema === filtroAtual);
+  visiveis.forEach(n => {
+    const i = NOTICIAS.indexOf(n);
+    const card = document.createElement("article");
+    card.className = "card" + (lidos.has(i) ? " lido" : "");
+    card.innerHTML = `
+      <div class="card-topo">
+        <span class="tag tag-${n.tema}">${NOMES[n.tema]}</span>
+        ${n.principal ? '<span class="badge-principal">★ Destaque</span>' : ''}
+      </div>
+      <div class="card-corpo">
+        <h2>${n.titulo}</h2>
+        <p>${n.resumo}</p>
+        <div class="meta">${n.fonte} — ${n.quando}</div>
+      </div>
+      <div class="card-acoes">
+        <a href="${n.url}" target="_blank" rel="noopener">Ler na fonte ↗</a>
+        <button data-idx="${i}">${lidos.has(i) ? "✓ Lido" : "Marcar como lido"}</button>
+      </div>`;
+    card.querySelector("button").addEventListener("click", e => {
+      const idx = Number(e.target.dataset.idx);
+      lidos.has(idx) ? lidos.delete(idx) : lidos.add(idx);
+      render();
+    });
+    grade.appendChild(card);
+  });
+  vazio.style.display = visiveis.length ? "none" : "block";
+  contador.textContent = `${NOTICIAS.length} notícias · ${lidos.size} lidas`;
+}
+
+document.getElementById("filtros").addEventListener("click", e => {
+  if(!e.target.classList.contains("filtro")) return;
+  document.querySelectorAll(".filtro").forEach(b => b.classList.remove("ativo"));
+  e.target.classList.add("ativo");
+  filtroAtual = e.target.dataset.tema;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
