@@ -193,6 +193,86 @@
     letter-spacing:1px;
     border-top:8px solid var(--neon-azul);
   }
+
+  /* MODAL NEO-BRUTALISTA DE REPOSITÓRIOS */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    top:0;left:0;width:100vw;height:100vh;
+    background:rgba(10,10,10,0.85);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+  }
+  .modal-overlay.ativo{display:flex;}
+  .modal-box{
+    background:var(--branco);
+    border:6px solid var(--preto);
+    box-shadow:12px 12px 0 var(--preto);
+    max-width:850px;
+    width:100%;
+    max-height:85vh;
+    overflow-y:auto;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:4px solid var(--preto);
+    padding-bottom:14px;
+  }
+  .modal-header h2{
+    font-family:Arial Black,sans-serif;
+    font-size:1.3rem;
+    text-transform:uppercase;
+  }
+  .btn-fechar{
+    background:var(--neon-rosa);
+    border:3px solid var(--preto);
+    font-weight:900;
+    font-size:1rem;
+    padding:6px 14px;
+    cursor:pointer;
+    box-shadow:4px 4px 0 var(--preto);
+    text-transform:uppercase;
+  }
+  .btn-fechar:hover{background:var(--preto);color:var(--branco);}
+  .repo-list{display:flex;flex-direction:column;gap:14px;}
+  .repo-item{
+    border:3px solid var(--preto);
+    padding:16px;
+    background:#fafafa;
+    box-shadow:4px 4px 0 var(--preto);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .repo-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .repo-title{
+    font-family:Arial Black,sans-serif;
+    font-size:1.1rem;
+    color:var(--preto);
+    text-decoration:none;
+  }
+  .repo-title:hover{text-decoration:underline;color:var(--neon-rosa);}
+  .repo-stars{
+    background:var(--neon-amarelo);
+    border:2px solid var(--preto);
+    font-size:.75rem;
+    font-weight:900;
+    padding:3px 8px;
+    text-transform:uppercase;
+  }
+  .repo-desc{font-size:.9rem;line-height:1.4;}
 </style>
 </head>
 <body>
@@ -215,13 +295,47 @@
   <div class="vazio" id="vazio">Nenhuma notícia neste filtro.</div>
 </main>
 
+<!-- MODAL DOS REPOSITÓRIOS EM ALTA -->
+<div class="modal-overlay" id="modal-repos">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>📈 Top 10 Repositórios de IA da Semana</h2>
+      <button class="btn-fechar" onclick="fecharModal()">✕ Fechar</button>
+    </div>
+    <div class="repo-list" id="lista-repos"></div>
+  </div>
+</div>
+
 <footer>Gerado automaticamente para Daniel — Dados coletados em 28/07/2026</footer>
 
 <script>
+const REPOSITORIOS = [
+  {name: "MadsLorentzen/ai-job-search", stars: "22.7k total (+13.2k esta semana)", url: "https://github.com/MadsLorentzen/ai-job-search", desc: "Framework completo de candidatura a empregos baseado em IA e Claude Code. Personaliza CVs, gera cartas de apresentação e prepara entrevistas."},
+  {name: "Doriandarko/texts-to-transformer", stars: "394 total (+394 esta semana)", url: "https://github.com/Doriandarko/texts-to-transformer", desc: "Treine um modelo Transformer minúsculo do zero usando seu histórico do iMessage diretamente no seu Mac."},
+  {name: "eli-labz/Cognitive-Core-Skills", stars: "274 total (+274 esta semana)", url: "https://github.com/eli-labz/Cognitive-Core-Skills", desc: "Taxonomia universal de habilidades cognitivas (percepção, memória, raciocínio, planejamento) para LLMs e agentes de IA."},
+  {name: "benlamiro/ShipGenAI", stars: "158 total (+158 esta semana)", url: "https://github.com/benlamiro/ShipGenAI", desc: "50 aplicações SaaS de IA Generativa prontas para produção com integração Stripe, Google OAuth e deploy Vercel."},
+  {name: "grandgaming9321-prog/reality-engine", stars: "153 total (+153 esta semana)", url: "https://github.com/grandgaming9321-prog/reality-engine", desc: "Ferramenta de simulação dinâmica de mundos com IA e narrativa interativa."},
+  {name: "Sujal-142/ai-image-clean-eraser", stars: "153 total (+153 esta semana)", url: "https://github.com/Sujal-142/ai-image-clean-eraser", desc: "Removedor de texto e objetos em imagens baseado em IA com detecção automática e alta precisão."},
+  {name: "okesipoke/manuscript-phoneme-decipher", stars: "152 total (+152 esta semana)", url: "https://github.com/okesipoke/manuscript-phoneme-decipher", desc: "Toolkit de IA para decifração fonética de manuscritos antigos e linguística computacional."},
+  {name: "browser-use/browser-use", stars: "34.2k total (+4.1k esta semana)", url: "https://github.com/browser-use/browser-use", desc: "Agentes autônomos que navegam na web em qualquer site interagindo com elementos de tela de forma nativa."},
+  {name: "virattt/ai-hedge-fund", stars: "12.1k total (+1.8k esta semana)", url: "https://github.com/virattt/ai-hedge-fund", desc: "Simulador de fundo de investimento automatizado guiado por múltiplos agentes de IA especializados."},
+  {name: "ollama/ollama", stars: "110.5k total (+3.9k esta semana)", url: "https://github.com/ollama/ollama", desc: "Execute modelos de linguagem abertos (Llama 3, DeepSeek, Mistral) localmente na sua máquina com extrema facilidade."}
+];
+
 const NOTICIAS = [
   {
     tema: "ia",
     principal: true,
+    titulo: "📈 TOP 10 REPOSITÓRIOS DE IA EM ALTA DA SEMANA",
+    resumo: "Confira a seleção dos 10 projetos open-source de Inteligência Artificial com maior engajamento e crescimento recente no GitHub Radar (AI Agents, Transformers locais e SaaS).",
+    fonte: "GitHub Radar / AI Trending",
+    url: "javascript:abrirModal()",
+    isModal: true,
+    quando: "28/07/2026"
+  },
+  {
+    tema: "ia",
+    principal: false,
     titulo: "Google indexa por erro conversas privadas de usuários no Claude da Anthropic",
     resumo: "Vazamento expôs historiais médicos, documentos corporativos e dados pessoais através da indexação de links compartilhados de chats e artefatos do Claude.",
     fonte: "TudoCelular / Mashable",
@@ -305,6 +419,33 @@ let filtroAtual = "todos";
 const grade = document.getElementById("grade");
 const vazio = document.getElementById("vazio");
 const contador = document.getElementById("contador");
+const modal = document.getElementById("modal-repos");
+const listaRepos = document.getElementById("lista-repos");
+
+function renderRepos(){
+  listaRepos.innerHTML = "";
+  REPOSITORIOS.forEach((r, idx) => {
+    const item = document.createElement("div");
+    item.className = "repo-item";
+    item.innerHTML = `
+      <div class="repo-top">
+        <a href="${r.url}" target="_blank" rel="noopener" class="repo-title">#${idx+1} ${r.name} ↗</a>
+        <span class="repo-stars">★ ${r.stars}</span>
+      </div>
+      <p class="repo-desc">${r.desc}</p>
+    `;
+    listaRepos.appendChild(item);
+  });
+}
+
+function abrirModal(){
+  renderRepos();
+  modal.classList.add("ativo");
+}
+
+function fecharModal(){
+  modal.classList.remove("ativo");
+}
 
 function render(){
   grade.querySelectorAll(".card").forEach(c => c.remove());
@@ -324,7 +465,7 @@ function render(){
         <div class="meta">${n.fonte} — ${n.quando}</div>
       </div>
       <div class="card-acoes">
-        <a href="${n.url}" target="_blank" rel="noopener">Ler na fonte ↗</a>
+        <a href="${n.url}" ${n.isModal ? 'onclick="event.preventDefault(); abrirModal();"' : 'target="_blank" rel="noopener"'}>${n.isModal ? 'Ver 10 Repositórios ↗' : 'Ler na fonte ↗'}</a>
         <button data-idx="${i}">${lidos.has(i) ? "✓ Lido" : "Marcar como lido"}</button>
       </div>`;
     card.querySelector("button").addEventListener("click", e => {
