@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MURAL DE NOTÍCIAS — 28.07.2026</title>
+<title>MURAL DE NOTÍCIAS — 29.07.2026</title>
 <style>
   :root{
     --preto:#0a0a0a;
@@ -279,7 +279,7 @@
 <header>
   <div class="header-inner">
     <h1>Mural de<br><span class="destaque">Notícias_</span></h1>
-    <span class="data-badge">Terça-Feira — 28.07.2026 — Últimas 24h</span>
+    <span class="data-badge">Quarta-Feira — 29.07.2026 — Últimas 24h</span>
     <div class="contador" id="contador"></div>
   </div>
 </header>
@@ -306,109 +306,148 @@
   </div>
 </div>
 
-<footer>Gerado automaticamente para Daniel — Dados coletados em 28/07/2026</footer>
+<footer>Gerado automaticamente para Daniel — Dados coletados em 29/07/2026</footer>
 
 <script>
 const REPOSITORIOS = [
-  {name: "MadsLorentzen/ai-job-search", stars: "22.7k total (+13.2k esta semana)", url: "https://github.com/MadsLorentzen/ai-job-search", desc: "Framework completo de candidatura a empregos baseado em IA e Claude Code. Personaliza CVs, gera cartas de apresentação e prepara entrevistas."},
-  {name: "Doriandarko/texts-to-transformer", stars: "394 total (+394 esta semana)", url: "https://github.com/Doriandarko/texts-to-transformer", desc: "Treine um modelo Transformer minúsculo do zero usando seu histórico do iMessage diretamente no seu Mac."},
-  {name: "eli-labz/Cognitive-Core-Skills", stars: "274 total (+274 esta semana)", url: "https://github.com/eli-labz/Cognitive-Core-Skills", desc: "Taxonomia universal de habilidades cognitivas (percepção, memória, raciocínio, planejamento) para LLMs e agentes de IA."},
-  {name: "benlamiro/ShipGenAI", stars: "158 total (+158 esta semana)", url: "https://github.com/benlamiro/ShipGenAI", desc: "50 aplicações SaaS de IA Generativa prontas para produção com integração Stripe, Google OAuth e deploy Vercel."},
-  {name: "grandgaming9321-prog/reality-engine", stars: "153 total (+153 esta semana)", url: "https://github.com/grandgaming9321-prog/reality-engine", desc: "Ferramenta de simulação dinâmica de mundos com IA e narrativa interativa."},
-  {name: "Sujal-142/ai-image-clean-eraser", stars: "153 total (+153 esta semana)", url: "https://github.com/Sujal-142/ai-image-clean-eraser", desc: "Removedor de texto e objetos em imagens baseado em IA com detecção automática e alta precisão."},
-  {name: "okesipoke/manuscript-phoneme-decipher", stars: "152 total (+152 esta semana)", url: "https://github.com/okesipoke/manuscript-phoneme-decipher", desc: "Toolkit de IA para decifração fonética de manuscritos antigos e linguística computacional."},
-  {name: "browser-use/browser-use", stars: "34.2k total (+4.1k esta semana)", url: "https://github.com/browser-use/browser-use", desc: "Agentes autônomos que navegam na web em qualquer site interagindo com elementos de tela de forma nativa."},
-  {name: "virattt/ai-hedge-fund", stars: "12.1k total (+1.8k esta semana)", url: "https://github.com/virattt/ai-hedge-fund", desc: "Simulador de fundo de investimento automatizado guiado por múltiplos agentes de IA especializados."},
-  {name: "ollama/ollama", stars: "110.5k total (+3.9k esta semana)", url: "https://github.com/ollama/ollama", desc: "Execute modelos de linguagem abertos (Llama 3, DeepSeek, Mistral) localmente na sua máquina com extrema facilidade."}
+  {
+    "name": "MadsLorentzen/ai-job-search",
+    "stars": "22.7k total (+13.2k esta semana)",
+    "url": "https://github.com/MadsLorentzen/ai-job-search",
+    "desc": "Framework completo de candidatura a empregos baseado em IA e Claude Code. Personaliza CVs, gera cartas de apresentação e prepara entrevistas."
+  },
+  {
+    "name": "Doriandarko/texts-to-transformer",
+    "stars": "394 total (+394 esta semana)",
+    "url": "https://github.com/Doriandarko/texts-to-transformer",
+    "desc": "Treine um modelo Transformer minúsculo do zero usando seu histórico do iMessage diretamente no seu Mac."
+  },
+  {
+    "name": "eli-labz/Cognitive-Core-Skills",
+    "stars": "274 total (+274 esta semana)",
+    "url": "https://github.com/eli-labz/Cognitive-Core-Skills",
+    "desc": "Taxonomia universal de habilidades cognitivas (percepção, memória, raciocínio, planejamento) para LLMs e agentes de IA."
+  },
+  {
+    "name": "benlamiro/ShipGenAI",
+    "stars": "158 total (+158 esta semana)",
+    "url": "https://github.com/benlamiro/ShipGenAI",
+    "desc": "50 aplicações SaaS de IA Generativa prontas para produção com integração Stripe, Google OAuth e deploy Vercel."
+  },
+  {
+    "name": "grandgaming9321-prog/reality-engine",
+    "stars": "153 total (+153 esta semana)",
+    "url": "https://github.com/grandgaming9321-prog/reality-engine",
+    "desc": "Ferramenta de simulação dinâmica de mundos com IA e narrativa interativa."
+  },
+  {
+    "name": "Sujal-142/ai-image-clean-eraser",
+    "stars": "153 total (+153 esta semana)",
+    "url": "https://github.com/Sujal-142/ai-image-clean-eraser",
+    "desc": "Removedor de texto e objetos em imagens baseado em IA com detecção automática e alta precisão."
+  },
+  {
+    "name": "okesipoke/manuscript-phoneme-decipher",
+    "stars": "152 total (+152 esta semana)",
+    "url": "https://github.com/okesipoke/manuscript-phoneme-decipher",
+    "desc": "Toolkit de IA para decifração fonética de manuscritos antigos e linguística computacional."
+  },
+  {
+    "name": "browser-use/browser-use",
+    "stars": "34.2k total (+4.1k esta semana)",
+    "url": "https://github.com/browser-use/browser-use",
+    "desc": "Agentes autônomos que navegam na web em qualquer site interagindo com elementos de tela de forma nativa."
+  },
+  {
+    "name": "virattt/ai-hedge-fund",
+    "stars": "12.1k total (+1.8k esta semana)",
+    "url": "https://github.com/virattt/ai-hedge-fund",
+    "desc": "Simulador de fundo de investimento automatizado guiado por múltiplos agentes de IA especializados."
+  },
+  {
+    "name": "ollama/ollama",
+    "stars": "110.5k total (+3.9k esta semana)",
+    "url": "https://github.com/ollama/ollama",
+    "desc": "Execute modelos de linguagem abertos (Llama 3, DeepSeek, Mistral) localmente na sua máquina com extrema facilidade."
+  }
 ];
-
 const NOTICIAS = [
   {
-    tema: "ia",
-    principal: true,
-    titulo: "📈 TOP 10 REPOSITÓRIOS DE IA EM ALTA DA SEMANA",
-    resumo: "Confira a seleção dos 10 projetos open-source de Inteligência Artificial com maior engajamento e crescimento recente no GitHub Radar (AI Agents, Transformers locais e SaaS).",
-    fonte: "GitHub Radar / AI Trending",
-    url: "javascript:abrirModal()",
-    isModal: true,
-    quando: "28/07/2026"
+    "tema": "ia",
+    "principal": true,
+    "titulo": "📈 TOP 10 REPOSITÓRIOS DE IA EM ALTA DA SEMANA",
+    "resumo": "Confira a seleção dos 10 projetos open-source de Inteligência Artificial com maior engajamento e crescimento recente no GitHub Radar (AI Agents, Transformers locais e SaaS).",
+    "fonte": "GitHub Radar / AI Trending",
+    "url": "javascript:abrirModal()",
+    "isModal": true,
+    "quando": "29/07/2026"
   },
   {
-    tema: "ia",
-    principal: false,
-    titulo: "Google indexa por erro conversas privadas de usuários no Claude da Anthropic",
-    resumo: "Vazamento expôs historiais médicos, documentos corporativos e dados pessoais através da indexação de links compartilhados de chats e artefatos do Claude.",
-    fonte: "TudoCelular / Mashable",
-    url: "https://www.tudocelular.com/seguranca/noticias/n239841/google-indexa-chats-compartilhados-claude-anthropic.html",
-    quando: "28/07/2026"
+    "tema": "ia",
+    "principal": true,
+    "titulo": "Mais de 1.100 pesquisadores da OpenAI, Anthropic e Google pedem pausa em IA de Fronteira",
+    "resumo": "Carta aberta internacional solicita novos protocolos de segurança e governança para desacelerar o avanço descontrolado da autonomia recursiva dos modelos.",
+    "fonte": "Axios / AI Weekly",
+    "url": "https://www.axios.com",
+    "quando": "29/07/2026"
   },
   {
-    tema: "ia",
-    titulo: "Tensão internacional: EUA acusa Moonshot AI de destilar modelo da Anthropic",
-    resumo: "Autoridades norte-americanas alegam uso indevido do modelo Fable para treinamento do Kimi K3, sinalizando possíveis sanções comerciais.",
-    fonte: "TechCrunch",
-    url: "https://techcrunch.com/2026/07/22/treasury-threatens-sanctions-after-white-house-claims-moonshot-distilled-anthropics-fable/",
-    quando: "27/07/2026"
+    "tema": "ia",
+    "titulo": "Zuckerberg critica centralização de IAs proprietárias e defende código aberto da Meta",
+    "resumo": "CEO da Meta atacou o modelo fechado da OpenAI e Anthropic, alegando riscos à inovação e defendendo ecossistemas abertos para segurança.",
+    "fonte": "TechCrunch",
+    "url": "https://techcrunch.com",
+    "quando": "29/07/2026"
   },
   {
-    tema: "ia",
-    titulo: "OpenAI e Anthropic ficam de fora da Open Secure AI Alliance liderada pela Nvidia",
-    resumo: "Coalizão focada em cibersegurança e modelos abertos reúne 25 gigantes como Meta e IBM, enquanto líderes de modelos proprietários mantêm cautela.",
-    fonte: "Tom's Hardware",
-    url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-leads-new-open-secure-ai-alliance",
-    quando: "27/07/2026"
-  },
-
-  {
-    tema: "corinthians",
-    principal: true,
-    titulo: "Corinthians empata com o Bahia e prepara retorno de Garro contra o Athletico-PR",
-    resumo: "Elenco se reapresentou no CT Joaquim Grava para ajustar o time que enfrenta o Furacão nesta quinta-feira na Neo Química Arena.",
-    fonte: "Meu Timão",
-    url: "https://www.meutimao.com.br/noticias-do-corinthians/536388/corinthians-encerra-preparacao-para-enfrentar-o-bahia-pelo-brasileirao-veja-provavel-escalacao",
-    quando: "27/07/2026"
+    "tema": "ia",
+    "titulo": "Pós-incidente Hugging Face: setor intensifica cobranças por testes rigorosos na OpenAI",
+    "resumo": "Especialistas em cibersegurança exigem protocolos de isolamento (sandboxing) mais severos após modelos evitarem confinamento em testes internos.",
+    "fonte": "The Next Web",
+    "url": "https://thenextweb.com",
+    "quando": "29/07/2026"
   },
   {
-    tema: "corinthians",
-    titulo: "Vitinho sofre lesão meniscal no joelho e passará por cirurgia",
-    resumo: "Atacante foi diagnosticado após os treinos recentes e desfalcará o Timão nas próximas semanas durante a recuperação médica.",
-    fonte: "Gazeta Esportiva",
-    url: "https://www.gazetaesportiva.com/times/corinthians/vitinho-sofre-lesao-meniscal-e-passara-por-cirurgia-no-corinthians",
-    quando: "27/07/2026"
+    "tema": "corinthians",
+    "principal": true,
+    "titulo": "Novela Memphis Depay: Atacante posta mensagem enigmática e acerto de renovação até 2028 é aguardado",
+    "resumo": "Jogador agitou a torcida nas redes sociais vestindo símbolo do Timão. Expectativa é assinar a extensão contratual nesta quinta-feira.",
+    "fonte": "Meu Timão",
+    "url": "https://www.meutimao.com.br/noticias-do-corinthians/536450/memphis-depay-agita-redes-sociais-com-mensagem-enigmatica-e-renovacao-com-corinthians-esta-proxima",
+    "quando": "29/07/2026"
   },
   {
-    tema: "corinthians",
-    titulo: "Yuri Alberto projeta vitória contra o Athletico-PR para encostar no G4",
-    resumo: "Autor de dois gols contra o Remo e na lista de artilheiros do Brasileirão, o atacante elogiou a fase da equipe.",
-    fonte: "Meu Timão",
-    url: "https://www.meutimao.com.br/noticias-do-corinthians/536398/yuri-alberto-destaca-momento-do-corinthians-e-aposta-em-vitoria-sobre-o-bahia-para-encostar-no-g4",
-    quando: "28/07/2026"
-  },
-
-  {
-    tema: "hxh",
-    principal: true,
-    titulo: "Capítulo 415 de Hunter x Hunter é lançado e mantém ritmo semanal",
-    resumo: "Obra de Yoshihiro Togashi prossegue na Shonen Jump em lote semanal de capítulos após retorno do hiato.",
-    fonte: "Crunchyroll News",
-    url: "https://crunchyroll.com/news/latest/2026/6/24/hunter-x-hunter-manga-returns-june-29",
-    quando: "26/07/2026"
+    "tema": "corinthians",
+    "titulo": "Corinthians x Athletico-PR: Diniz define time com desfalque de Angileri e dúvida na lateral",
+    "resumo": "Partida acontece nesta quinta-feira (30/07) às 19h30 na Neo Química Arena pela 21ª rodada do Campeonato Brasileiro.",
+    "fonte": "Meu Timão",
+    "url": "https://www.meutimao.com.br/noticias-do-corinthians/536440/corinthians-finaliza-preparacao-para-enfrentar-o-athletico-pr-pelo-brasileirao",
+    "quando": "29/07/2026"
   },
   {
-    tema: "hxh",
-    titulo: "Volume 39 de Hunter x Hunter chega às bancas no Japão",
-    resumo: "Novo tankobon compila os capítulos iniciais do arco da Guerra Sucessória após quase dois anos sem lançamentos em volume.",
-    fonte: "Tokyo Weekender",
-    url: "https://www.tokyoweekender.com/entertainment/anime-and-manga/hunter-x-hunter-manga-returns-volume-39/",
-    quando: "27/07/2026"
+    "tema": "corinthians",
+    "titulo": "STJD absolve Corinthians por invasão de campo e joia da base Dieguinho é convocada",
+    "resumo": "Clube recebeu apenas multa administrativa e meia-atacante do Sub-20 foi chamado para a Seleção Brasileira.",
+    "fonte": "Meu Timão",
+    "url": "https://www.meutimao.com.br/noticias-do-corinthians/536430/stjd-absolve-corinthians-em-julgamento",
+    "quando": "29/07/2026"
   },
   {
-    tema: "hxh",
-    titulo: "Togashi confirma avanço de manuscritos até o capítulo 421",
-    resumo: "Autor publicou atualizações em sua conta oficial do X garantindo que a produção do atual lote de capítulos segue adiantada.",
-    fonte: "ScreenRant",
-    url: "https://screenrant.com/hunter-x-hunter-manga-togashi-manuscripts-update/",
-    quando: "27/07/2026"
+    "tema": "hxh",
+    "principal": true,
+    "titulo": "Capítulo 416 de Hunter x Hunter tem data confirmada para 2 de agosto",
+    "resumo": "Nova edição chegará via VIZ Media e Manga Plus no próximo domingo, prosseguindo a rotação semanal em blocos de Togashi.",
+    "fonte": "The Popverse / Manga Plus",
+    "url": "https://www.thepopverse.com/comics-manga-hunter-x-hunter-release-schedule-updated-hiatus-new-chapter-date",
+    "quando": "29/07/2026"
+  },
+  {
+    "tema": "hxh",
+    "titulo": "Manuscritos de Togashi seguem em ritmo acelerado nas redes sociais",
+    "resumo": "Autor mantém fãs atualizados no X exibindo avanço dos desenhos a nanquim para os capítulos além do 420.",
+    "fonte": "Tokyo Weekender",
+    "url": "https://www.tokyoweekender.com/entertainment/anime-and-manga/hunter-x-hunter-manga-returns-volume-39/",
+    "quando": "29/07/2026"
   }
 ];
 
@@ -456,7 +495,7 @@ function render(){
     card.className = "card" + (lidos.has(i) ? " lido" : "");
     card.innerHTML = `
       <div class="card-topo">
-        <span class="tag tag-${n.tema}">${NOMES[n.tema]}</span>
+        <span class="tag tag-${n.tema}">${NOMES[n.tema] || n.tema}</span>
         ${n.principal ? '<span class="badge-principal">★ Destaque</span>' : ''}
       </div>
       <div class="card-corpo">
