@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="build-timestamp" content="20260801230021">
+<meta name="robots" content="noindex, nofollow">
+<title>MURAL DE NOTÍCIAS — 01.08.2026</title>
+<style>
+  :root{
+    --preto:#0a0a0a;
+    --branco:#ffffff;
+    --neon-amarelo:#ffe600;
+    --neon-rosa:#ff3ea5;
+    --neon-verde:#00e572;
+    --neon-azul:#00c2ff;
+    --sombra:8px 8px 0 var(--preto);
+    --borda:4px solid var(--preto);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--neon-amarelo);
+    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color:var(--preto);
+    background-image:radial-gradient(var(--preto) 1.5px, transparent 1.5px);
+    background-size:28px 28px;
+    min-height:100vh;
+  }
+  header{
+    background:var(--preto);
+    color:var(--branco);
+    padding:32px 24px;
+    border-bottom:8px solid var(--neon-rosa);
+  }
+  .header-inner{max-width:1200px;margin:0 auto;}
+  h1{
+    font-family:Arial Black,'Arial Bold',Arial,sans-serif;
+    font-weight:900;
+    font-size:clamp(2.2rem,7vw,4.5rem);
+    line-height:.95;
+    letter-spacing:-2px;
+    text-transform:uppercase;
+  }
+  h1 .destaque{color:var(--neon-amarelo);}
+  .data-badge{
+    display:inline-block;
+    background:var(--neon-rosa);
+    color:var(--preto);
+    font-weight:900;
+    padding:6px 14px;
+    margin-top:14px;
+    border:3px solid var(--branco);
+    box-shadow:5px 5px 0 var(--neon-amarelo);
+    font-size:1rem;
+    text-transform:uppercase;
+  }
+  .contador{
+    margin-top:10px;
+    font-size:.85rem;
+    color:#bbb;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  nav{
+    max-width:1200px;
+    margin:28px auto 0;
+    padding:0 24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .filtro{
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:1rem;
+    padding:12px 22px;
+    background:var(--branco);
+    border:var(--borda);
+    box-shadow:6px 6px 0 var(--preto);
+    cursor:pointer;
+    transition:transform .08s,box-shadow .08s;
+  }
+  .filtro:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--preto);}
+  .filtro:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--preto);}
+  .filtro.ativo[data-tema="todos"]{background:var(--preto);color:var(--branco);}
+  .filtro.ativo[data-tema="ia"]{background:var(--neon-azul);}
+  .filtro.ativo[data-tema="corinthians"]{background:var(--neon-verde);}
+  .filtro.ativo[data-tema="hxh"]{background:var(--neon-rosa);}
+  main{
+    max-width:1200px;
+    margin:32px auto 60px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
+    gap:28px;
+  }
+  .card{
+    background:var(--branco);
+    border:var(--borda);
+    box-shadow:var(--sombra);
+    display:flex;
+    flex-direction:column;
+    transition:opacity .25s,filter .25s,transform .08s;
+  }
+  .card:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--preto);}
+  .card.lido{opacity:.35;filter:grayscale(1);}
+  .card-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:var(--borda);
+    padding:10px 14px;
+  }
+  .tag{
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:.75rem;
+    padding:4px 10px;
+    border:3px solid var(--preto);
+  }
+  .tag-ia{background:var(--neon-azul);}
+  .tag-corinthians{background:var(--neon-verde);}
+  .tag-hxh{background:var(--neon-rosa);}
+  .badge-principal{
+    font-size:.7rem;
+    font-weight:900;
+    background:var(--preto);
+    color:var(--neon-amarelo);
+    padding:4px 8px;
+    text-transform:uppercase;
+  }
+  .card-corpo{padding:18px 16px;flex:1;display:flex;flex-direction:column;gap:12px;}
+  .card h2{
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    font-size:1.25rem;
+    line-height:1.1;
+    text-transform:uppercase;
+    letter-spacing:-.5px;
+  }
+  .card p{font-size:.92rem;line-height:1.45;font-weight:500;}
+  .meta{
+    font-size:.75rem;
+    font-weight:700;
+    text-transform:uppercase;
+    color:#444;
+    margin-top:auto;
+  }
+  .card-acoes{
+    display:flex;
+    border-top:var(--borda);
+  }
+  .card-acoes a,.card-acoes button{
+    flex:1;
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:.8rem;
+    padding:12px 8px;
+    background:var(--branco);
+    border:none;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    color:var(--preto);
+  }
+  .card-acoes a{border-right:var(--borda);background:var(--neon-amarelo);}
+  .card-acoes a:hover{background:var(--preto);color:var(--neon-amarelo);}
+  .card-acoes button:hover{background:var(--preto);color:var(--branco);}
+  .card.lido .card-acoes button{background:var(--neon-verde);}
+  .vazio{
+    grid-column:1/-1;
+    background:var(--branco);
+    border:var(--borda);
+    box-shadow:var(--sombra);
+    padding:40px;
+    text-align:center;
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    font-size:1.3rem;
+    display:none;
+  }
+  .aviso-fontes{
+    display:none;
+    max-width:1200px;
+    margin:20px auto 0;
+    padding:14px 24px;
+    background:var(--neon-amarelo);
+    border:var(--borda);
+    box-shadow:var(--sombra);
+    font-family:Arial Black,Arial,sans-serif;
+    font-weight:900;
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+  footer{
+    background:var(--preto);
+    color:var(--branco);
+    text-align:center;
+    padding:20px;
+    font-weight:700;
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-top:8px solid var(--neon-azul);
+  }
+
+  /* MODAL NEO-BRUTALISTA DE REPOSITÓRIOS */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    top:0;left:0;width:100vw;height:100vh;
+    background:rgba(10,10,10,0.85);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+  }
+  .modal-overlay.ativo{display:flex;}
+  .modal-box{
+    background:var(--branco);
+    border:6px solid var(--preto);
+    box-shadow:12px 12px 0 var(--preto);
+    max-width:850px;
+    width:100%;
+    max-height:85vh;
+    overflow-y:auto;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:4px solid var(--preto);
+    padding-bottom:14px;
+  }
+  .modal-header h2{
+    font-family:Arial Black,sans-serif;
+    font-size:1.3rem;
+    text-transform:uppercase;
+  }
+  .btn-fechar{
+    background:var(--neon-rosa);
+    border:3px solid var(--preto);
+    font-weight:900;
+    font-size:1rem;
+    padding:6px 14px;
+    cursor:pointer;
+    box-shadow:4px 4px 0 var(--preto);
+    text-transform:uppercase;
+  }
+  .btn-fechar:hover{background:var(--preto);color:var(--branco);}
+  .repo-list{display:flex;flex-direction:column;gap:14px;}
+  .repo-item{
+    border:3px solid var(--preto);
+    padding:16px;
+    background:#fafafa;
+    box-shadow:4px 4px 0 var(--preto);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .repo-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .repo-title{
+    font-family:Arial Black,sans-serif;
+    font-size:1.1rem;
+    color:var(--preto);
+    text-decoration:none;
+  }
+  .repo-title:hover{text-decoration:underline;color:var(--neon-rosa);}
+  .repo-stars{
+    background:var(--neon-amarelo);
+    border:2px solid var(--preto);
+    font-size:.75rem;
+    font-weight:900;
+    padding:3px 8px;
+    text-transform:uppercase;
+  }
+  .repo-desc{font-size:.9rem;line-height:1.4;}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <h1>Mural de<br><span class="destaque">Notícias_</span></h1>
+    <span class="data-badge">Sábado — 01.08.2026 — Últimas 48h · HxH: 14 dias</span>
+    <div class="contador" id="contador"></div>
+  </div>
+</header>
+
+<nav id="filtros">
+  <button class="filtro ativo" data-tema="todos">Todos</button>
+  <button class="filtro" data-tema="ia">🤖 IA</button>
+  <button class="filtro" data-tema="corinthians">⚽ Corinthians</button>
+  <button class="filtro" data-tema="hxh">🎌 Hunter x Hunter</button>
+</nav>
+
+<!-- T-06: aviso discreto de status das fontes -- fica escondido (display:none
+     no CSS acima) em dia normal; o script no fim do body só troca o texto e
+     mostra este bloco quando status_fontes.json aponta alguma fonte
+     "erro"/"vazio". Nunca ocupa espaço quando está tudo ok. -->
+<div class="aviso-fontes" id="aviso-fontes"></div>
+
+<main id="grade">
+  <div class="vazio" id="vazio">Nenhuma notícia neste filtro.</div>
+</main>
+
+<!-- MODAL DOS REPOSITÓRIOS EM ALTA -->
+<div class="modal-overlay" id="modal-repos">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>📈 Top 10 Repositórios de IA da Semana</h2>
+      <button class="btn-fechar" onclick="fecharModal()">✕ Fechar</button>
+    </div>
+    <div class="repo-list" id="lista-repos"></div>
+  </div>
+</div>
+
+<footer>Gerado automaticamente — Dados coletados em 01/08/2026</footer>
+
+<script>
+const BUILD_TS = "20260801230021";
+if (BUILD_TS && !window.location.search.includes("v=" + BUILD_TS)) {
+  const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?v=" + BUILD_TS + window.location.hash;
+  window.history.replaceState(null, "", cleanUrl);
+}
+
+const REPOSITORIOS = [
+  {
+    "name": "superloglabs/superlog",
+    "stars": "1,219 total",
+    "url": "https://github.com/superloglabs/superlog",
+    "desc": "Open-source observability tool that uses AI agents to self-heal your software"
+  },
+  {
+    "name": "Gitlawb/zero",
+    "stars": "1,195 total",
+    "url": "https://github.com/Gitlawb/zero",
+    "desc": "The coding agent that answers to you, your model, your machine, your rules."
+  },
+  {
+    "name": "sums001/Windows-Copilot-API",
+    "stars": "1,182 total",
+    "url": "https://github.com/sums001/Windows-Copilot-API",
+    "desc": "Reverse engineered Windows Copilot into an OpenAI-compatible API. Access GPT-4 and GPT-5 models through a simple REST interface without API keys or billing."
+  },
+  {
+    "name": "PentesterFlow/agent",
+    "stars": "1,162 total",
+    "url": "https://github.com/PentesterFlow/agent",
+    "desc": "Agentic offensive-security in your terminal"
+  },
+  {
+    "name": "amElnagdy/guard-skills",
+    "stars": "1,129 total",
+    "url": "https://github.com/amElnagdy/guard-skills",
+    "desc": "Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs"
+  },
+  {
+    "name": "DEEIX-AI/DEEIX-Chat",
+    "stars": "1,121 total",
+    "url": "https://github.com/DEEIX-AI/DEEIX-Chat",
+    "desc": "An enterprise AI workspace for model routing, multimodal chat, files, tools, billing, identity, and operations."
+  },
+  {
+    "name": "Javis603/token-monitor",
+    "stars": "1,090 total",
+    "url": "https://github.com/Javis603/token-monitor",
+    "desc": "Local-first desktop widget for tracking token usage, costs, and limits across 28+ AI coding tools—including Claude Code, Codex, Cursor, OpenCode, and OpenClaw—with multi-device sync."
+  },
+  {
+    "name": "boona13/image-extender",
+    "stars": "1,085 total",
+    "url": "https://github.com/boona13/image-extender",
+    "desc": "Seamlessly extend any image in any direction with AI. Open-source web app powered by Gemini via OpenRouter, with Poisson-blended seams and best-of-3 variant picker."
+  },
+  {
+    "name": "Dong90/oh-my-taiyiforge",
+    "stars": "1,018 total",
+    "url": "https://github.com/Dong90/oh-my-taiyiforge",
+    "desc": "AI workflow automation plugin for intelligent code generation with Claude/Codex"
+  },
+  {
+    "name": "alchaincyf/fanbox",
+    "stars": "966 total",
+    "url": "https://github.com/alchaincyf/fanbox",
+    "desc": "vibe coding 的驾驶舱：左边文件，右边/下边终端，中间看清每一次改动。 / The cockpit for vibe coding: browse files on the left, command agents on the right, watch every change in between."
+  }
+];
+const NOTICIAS = [
+  {
+    "tema": "ia",
+    "principal": true,
+    "titulo": "📈 TOP 10 REPOSITÓRIOS DE IA EM ALTA DA SEMANA",
+    "resumo": "Confira a seleção dos 10 projetos open-source de Inteligência Artificial inéditos e em alta no GitHub Radar (AI Agents, Transformers locais e SaaS).",
+    "fonte": "GitHub Radar / AI Trending",
+    "url": "javascript:abrirModal()",
+    "isModal": true,
+    "quando": "01/08/2026"
+  }
+];
+// T-06: status por fonte (ok/erro/vazio) coletado durante a geração do mural
+// -- ver registrar_status_fonte()/resumo_status_texto() em generate_daily_mural.py.
+const STATUS_FONTES = {
+  "GitHub Trending": {
+    "estado": "ok",
+    "itens": 10,
+    "erro": null
+  },
+  "TechCrunch": {
+    "estado": "ok",
+    "itens": 3,
+    "erro": null
+  },
+  "Meu Timão": {
+    "estado": "ok",
+    "itens": 3,
+    "erro": null
+  },
+  "JBox": {
+    "estado": "vazio",
+    "itens": 0,
+    "erro": null
+  },
+  "IGN Brasil": {
+    "estado": "vazio",
+    "itens": 0,
+    "erro": null
+  },
+  "AnimeHunch": {
+    "estado": "vazio",
+    "itens": 0,
+    "erro": null
+  }
+};
+const STATUS_FONTES_RESUMO = "⚠️ 3 fontes com problema: JBox (vazio), IGN Brasil (vazio), AnimeHunch (vazio)";
+
+const NOMES = {ia:"IA", corinthians:"Corinthians", hxh:"Hunter x Hunter"};
+const lidos = new Set();
+let filtroAtual = "todos";
+
+const grade = document.getElementById("grade");
+const vazio = document.getElementById("vazio");
+const contador = document.getElementById("contador");
+const modal = document.getElementById("modal-repos");
+const listaRepos = document.getElementById("lista-repos");
+const avisoFontes = document.getElementById("aviso-fontes");
+
+function renderRepos(){
+  listaRepos.innerHTML = "";
+  REPOSITORIOS.forEach((r, idx) => {
+    const item = document.createElement("div");
+    item.className = "repo-item";
+    item.innerHTML = `
+      <div class="repo-top">
+        <a href="${r.url}" target="_blank" rel="noopener" class="repo-title">#${idx+1} ${r.name} ↗</a>
+        <span class="repo-stars">★ ${r.stars}</span>
+      </div>
+      <p class="repo-desc">${r.desc}</p>
+    `;
+    listaRepos.appendChild(item);
+  });
+}
+
+function abrirModal(){
+  renderRepos();
+  modal.classList.add("ativo");
+}
+
+function fecharModal(){
+  modal.classList.remove("ativo");
+}
+
+function render(){
+  grade.querySelectorAll(".card").forEach(c => c.remove());
+  const visiveis = NOTICIAS.filter(n => filtroAtual === "todos" || n.tema === filtroAtual);
+  visiveis.forEach(n => {
+    const i = NOTICIAS.indexOf(n);
+    const card = document.createElement("article");
+    card.className = "card" + (lidos.has(i) ? " lido" : "");
+    card.innerHTML = `
+      <div class="card-topo">
+        <span class="tag tag-${n.tema}">${NOMES[n.tema] || n.tema}</span>
+        ${n.principal ? '<span class="badge-principal">★ Destaque</span>' : ''}
+      </div>
+      <div class="card-corpo">
+        <h2>${n.titulo}</h2>
+        <p>${n.resumo}</p>
+        <div class="meta">${n.fonte} — ${n.quando}</div>
+      </div>
+      <div class="card-acoes">
+        <a href="${n.url}" ${n.isModal ? 'onclick="event.preventDefault(); abrirModal();"' : 'target="_blank" rel="noopener"'}>${n.isModal ? 'Ver 10 Repositórios ↗' : 'Ler na fonte ↗'}</a>
+        <button data-idx="${i}">${lidos.has(i) ? "✓ Lido" : "Marcar como lido"}</button>
+      </div>`;
+    card.querySelector("button").addEventListener("click", e => {
+      const idx = Number(e.target.dataset.idx);
+      lidos.has(idx) ? lidos.delete(idx) : lidos.add(idx);
+      render();
+    });
+    grade.appendChild(card);
+  });
+  vazio.style.display = visiveis.length ? "none" : "block";
+  contador.textContent = `${NOTICIAS.length} notícias · ${lidos.size} lidas`;
+}
+
+document.getElementById("filtros").addEventListener("click", e => {
+  if(!e.target.classList.contains("filtro")) return;
+  document.querySelectorAll(".filtro").forEach(b => b.classList.remove("ativo"));
+  e.target.classList.add("ativo");
+  filtroAtual = e.target.dataset.tema;
+  render();
+});
+
+// T-06: aviso discreto -- só aparece quando alguma fonte não veio "ok".
+// O texto em si já vem pronto de resumo_status_texto() (Python); aqui só
+// decide mostrar/esconder o bloco, sem duplicar a lógica de formatação.
+const temFonteComProblema = Object.values(STATUS_FONTES).some(f => f.estado !== "ok");
+if (temFonteComProblema && avisoFontes) {
+  avisoFontes.textContent = STATUS_FONTES_RESUMO;
+  avisoFontes.style.display = "block";
+}
+
+render();
+</script>
+</body>
+</html>
