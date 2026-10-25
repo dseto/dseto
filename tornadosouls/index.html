@@ -6,9 +6,9 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build-timestamp" content="20261024092140">
+<meta name="build-timestamp" content="20261025080004">
 <meta name="robots" content="noindex, nofollow">
-<title>MURAL DE NOTÍCIAS — 24.10.2026</title>
+<title>MURAL DE NOTÍCIAS — 25.10.2026</title>
 <style>
   :root{
     --preto:#0a0a0a;
@@ -300,7 +300,7 @@
 <header>
   <div class="header-inner">
     <h1>Mural de<br><span class="destaque">Notícias_</span></h1>
-    <span class="data-badge">Sábado — 24.10.2026 — Últimas 48h · João Fonseca: 7 dias · Hunter x Hunter: 14 dias</span>
+    <span class="data-badge">Domingo — 25.10.2026 — Últimas 48h · João Fonseca: 7 dias · Hunter x Hunter: 14 dias</span>
     <div class="contador" id="contador"></div>
   </div>
 </header>
@@ -333,16 +333,29 @@
   </div>
 </div>
 
-<footer>Gerado automaticamente — Dados coletados em 24/10/2026</footer>
+<footer>Gerado automaticamente — Dados coletados em 25/10/2026</footer>
 
 <script>
-const BUILD_TS = "20261024092140";
+const BUILD_TS = "20261025080004";
 if (BUILD_TS && !window.location.search.includes("v=" + BUILD_TS)) {
   const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?v=" + BUILD_TS + window.location.hash;
   window.history.replaceState(null, "", cleanUrl);
 }
 
-const REPOSITORIOS = [];
+const REPOSITORIOS = [
+  {
+    "name": "flohoeller/affectui",
+    "stars": "251 total",
+    "url": "https://github.com/flohoeller/affectui",
+    "desc": "Handcrafted React components, illustrations and motion for AI products. One file each, calm motion, dark mode built in. Install with the shadcn CLI – free and open source."
+  },
+  {
+    "name": "VinkyDev/vibestart",
+    "stars": "246 total",
+    "url": "https://github.com/VinkyDev/vibestart",
+    "desc": "Compose a full-stack TypeScript stack and get a cutting-edge, verified project made for AI coding agents, with type safety, lint, and tests built in. | 自由组合全栈 TypeScript 技术栈，得到一个前沿、经过验证、为 AI 编码智能体打造的项目，内置类型安全、lint 与测试。"
+  }
+];
 const NOTICIAS = [
   {
     "tema": "ia",
@@ -352,91 +365,178 @@ const NOTICIAS = [
     "fonte": "GitHub Radar / AI Trending",
     "url": "javascript:abrirModal()",
     "isModal": true,
-    "quando": "24/10/2026"
+    "quando": "25/10/2026"
   },
   {
     "tema": "ia",
     "principal": true,
-    "titulo": "Outubro abriu sem um grande lançamento de modelo de ponta",
-    "resumo": "O acompanhamento de lançamentos da digitalapplied diz que o mês começou sem um modelo carro-chefe novo de OpenAI, Anthropic ou Google. Ele registra o Gemini 4 Argon disponível na API do Gemini desde 13/10. A llm-stats ci...",
-    "fonte": "digitalapplied.com via last30days",
-    "url": "https://www.digitalapplied.com/blog/ai-model-releases-october-2026-tracker",
+    "titulo": "A corrida dos modelos está acelerada, e o foco virou velocidade e preço",
+    "resumo": "A Anthropic lançou o Claude Sonnet 5.5 com ganho de mais de 30% em velocidade e custo até 30% menor por tarefa, segundo o Sapo. O Claude Haiku 5.5 saiu em 7/10 com preços mais baixos, segundo o MarketingProfs. O Google a...",
+    "fonte": "sapo.pt via last30days",
+    "url": "https://sapo.pt/artigo/anthropic-torna-o-claude-mais-rapido-e-mais-barato-6ada97a673157f986634de53",
     "quando": "Data não disponível",
     "data_estimada": true,
-    "chave_dedup": "last30days:30766f8cea841ec3"
+    "chave_dedup": "last30days:a091672eef99213d"
+  },
+  {
+    "tema": "ia",
+    "principal": false,
+    "titulo": "The AI graveyard: a running list of projects and startups that didn’t make it",
+    "resumo": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+    "fonte": "TechCrunch",
+    "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+    "quando": "24/10/2026",
+    "data_estimada": false
+  },
+  {
+    "tema": "ia",
+    "principal": false,
+    "titulo": "Como Validar uma Ideia de SaaS com IA Antes de Programar | Codex + AIsa",
+    "resumo": "Teste a AIsa:\nhttps://go.aisa.one/matheus-pereira\n\nComo validar uma ideia de SaaS antes de começar a programar? Neste vídeo, eu uso Codex + AIsa para fazer uma pesquisa de mercado com IA, medir a demanda, analisar concor...",
+    "fonte": "o Matheus da IA (YouTube)",
+    "url": "https://www.youtube.com/watch?v=sace8EZ_jns",
+    "quando": "23/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i4.ytimg.com/vi/sace8EZ_jns/hqdefault.jpg"
+  },
+  {
+    "tema": "ia",
+    "principal": false,
+    "titulo": "70% da internet Hackeada pela a IA",
+    "resumo": "Inteligência artificial e segurança digital: enquanto o seu feed atualizava, uma falha crítica colocou 70% da internet em risco. Seus dados ficaram expostos e você precisa saber o motivo.\n──────────────────────\nEu sei ex...",
+    "fonte": "Paula Bernardes (YouTube)",
+    "url": "https://www.youtube.com/watch?v=a63CcCxW9Pc",
+    "quando": "24/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i2.ytimg.com/vi/a63CcCxW9Pc/hqdefault.jpg"
   },
   {
     "tema": "corinthians",
     "principal": true,
-    "titulo": "Seedorf finally gets his debut at Vasco",
-    "resumo": "O Corinthians registrou o contrato do técnico Clarence Seedorf no BID da CBF nesta sexta, e o holandês, que só esperava o visto de trabalho, já pode estrear, per @MeuTimao. A estreia foi adiada porque ele não foi inscrit...",
-    "fonte": "X via last30days",
-    "url": "https://x.com/MeuTimao/status/2113693340646445467",
+    "titulo": "Virada do Vasco fez a torcida perder a paciência",
+    "resumo": "O Corinthians perdeu por 3x2 para o Vasco na 32ª rodada do Brasileirão, neste sábado (24/10). A partida terminou com o time sendo virado. O vídeo de pós-jogo do Meu Timão passou de 150 mil views. Na coletiva, o Matheus B...",
+    "fonte": "YouTube via last30days",
+    "url": "https://www.youtube.com/watch?v=QT0ZHyTRFOw",
     "quando": "Data não disponível",
     "data_estimada": true,
-    "chave_dedup": "last30days:3909fedfb5dee779"
+    "chave_dedup": "last30days:19c59e37c04102f2"
   },
   {
     "tema": "corinthians",
     "principal": false,
-    "titulo": "Meu Timão transmite o Corinthians nas quartas de final da Libertadores Feminina; saiba como assistir",
-    "resumo": "Confira a cobertura exclusiva do Corinthians publicada pelo portal Meu Timão: 'Meu Timão transmite o Corinthians nas quartas de final da Libertadores Feminina; saiba como assistir'.",
+    "titulo": "Últimas do Corinthians: derrota no Brasileirão e classificações no Sub-17 e na Libertadores Feminina",
+    "resumo": "Confira a cobertura exclusiva do Corinthians publicada pelo portal Meu Timão: 'Últimas do Corinthians: derrota no Brasileirão e classificações no Sub-17 e na Libertadores Feminina'.",
     "fonte": "Meu Timão",
-    "url": "https://www.meutimao.com.br/noticias-do-corinthians/542689/meu-timao-transmite-o-corinthians-nas-quartas-de-final-da-libertadores-feminina-saiba-como-assistir",
+    "url": "https://www.meutimao.com.br/noticias-do-corinthians/542797/ultimas-do-corinthians-derrota-no-brasileirao-e-classificacoes-no-sub-17-e-na-libertadores-feminina",
     "quando": "Data não disponível",
     "data_estimada": true
   },
   {
+    "tema": "corinthians",
+    "principal": false,
+    "titulo": "DUDA SAMPAIO PROJETA DUELO PARA A SEMIFINAL DA LIBERTADORES",
+    "resumo": "Duda Sampaio falou sobre o confronto da semifinal contra a equipe do Santa Fé\n  \n🎥 Maria Beatriz de Teves / Meu Timão\n\n#Corinthians #Timao #MeuTimao #Shorts",
+    "fonte": "Meu Timão (YouTube)",
+    "url": "https://www.youtube.com/shorts/UQlBu59iaWw",
+    "quando": "25/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i2.ytimg.com/vi/UQlBu59iaWw/hqdefault.jpg"
+  },
+  {
+    "tema": "corinthians",
+    "principal": false,
+    "titulo": "COLETIVA PÓS-JOGO | VASCO DA GAMA 3 X 2 CORINTHIANS | BRASILEIRÃO 2026 | 32ª RODADA",
+    "resumo": "O técnico do Corinthians, Clarence Seedorf, concede entrevista coletiva direto de São Januário após a partida contra o Vasco da Gama, válida pela 32ª rodada do Brasileirão 2026.\n\nAcompanhe aqui na Corinthians TV!\n\n---\n\n#...",
+    "fonte": "Corinthians TV (YouTube)",
+    "url": "https://www.youtube.com/watch?v=mfYT-wb9UCc",
+    "quando": "25/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i2.ytimg.com/vi/mfYT-wb9UCc/hqdefault.jpg"
+  },
+  {
     "tema": "joao_fonseca",
     "principal": true,
-    "titulo": "Fonseca encerrou a temporada de 2026 e só volta em 2027",
-    "resumo": "No sábado (17/10), o brasileiro anunciou em vídeo nas redes que não joga mais este ano para priorizar a recuperação de uma lesão abdominal. Ele abre mão de Basileia e do Masters 1000 de Paris, segundo @Estadao, @infomone...",
+    "titulo": "João Fonseca encerrou 2026 e só volta em 2027",
+    "resumo": "Em 17 de outubro ele anunciou que não joga mais nesta temporada, para priorizar a recuperação física e mental, segundo a imprensa brasileira (Jornal do Comércio, Times Brasil). Dois dias antes, a previsão ainda era volta...",
+    "fonte": "jornaldocomercio.com via last30days",
+    "url": "https://www.jornaldocomercio.com/esportes/2026/10/1267277-joao-fonseca-muda-os-planos-e-so-volta-a-jogar-em-2027.html",
+    "quando": "Data não disponível",
+    "data_estimada": true,
+    "chave_dedup": "last30days:3fb269158adad979"
+  },
+  {
+    "tema": "joao_fonseca",
+    "principal": false,
+    "titulo": "Temporada marcada por problemas físicos",
+    "resumo": "As dores na lombar começaram no início do ano e o tiraram de Brisbane e Adelaide. Em agosto ele já havia desistido da gira asiática. Segundo o resumo da busca, foram 33 partidas e 20 vitórias, sem semifinais no circuito ...",
     "fonte": "X via last30days",
-    "url": "https://x.com/Estadao/status/2111469786362413437",
+    "url": "https://x.com/tenisnewsbrasil/status/2113776722751709427",
     "quando": "Data não disponível",
     "data_estimada": true,
-    "chave_dedup": "last30days:aa96472c5852da23"
+    "chave_dedup": "last30days:cb173060c692e548"
   },
   {
     "tema": "joao_fonseca",
     "principal": false,
-    "titulo": "Um ano de lesões",
-    "resumo": "A lesão abdominal começou em Cincinnati, em agosto. Fonseca se retirou do torneio e depois desistiu do US Open, de acordo com a ATP e o Punto de Break, que fala em \"temporada alarmante\". Antes disso houve problemas na lo...",
-    "fonte": "atptour.com via last30days",
-    "url": "https://www.atptour.com/en/news/fonseca-cincinnati-2026-withdrawal",
-    "quando": "Data não disponível",
-    "data_estimada": true,
-    "chave_dedup": "last30days:4b31c5b22c417087"
+    "titulo": "THIAGO WILD PRÓXIMO DO TOP 100 (E DO MELHOR NÍVEL DA CARREIRA)",
+    "resumo": "Thiago Seyboth Wild é campeão do Challenger de Santa Cruz de la Sierra, na Bolívia, e volta a mirar o top 100 do ranking da ATP. Em junho, ele beirava o 300º lugar. Desde então, foram quatro títulos.\n\nNeste vídeo, analis...",
+    "fonte": "Tênis Além do Óbvio (YouTube)",
+    "url": "https://www.youtube.com/watch?v=33J19EIud3M",
+    "quando": "19/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i4.ytimg.com/vi/33J19EIud3M/hqdefault.jpg"
+  },
+  {
+    "tema": "joao_fonseca",
+    "principal": false,
+    "titulo": "JOÃO FONSECA CONFIRMA REVANCHE COM ALCARAZ! Duda Gomes no WTA 125 + Gustavo Heide x Pucinelli (HOJE)",
+    "resumo": "Apoie o canal via PIX: forehandbr@gmail.com\n\n🟢 WhatsApp - Entre no WhatsApp do Canal:\n👉https://whatsapp.com/channel/0029VbDJnuzHltY0vtUgmk07\n\n🔵 Telegram ✈️- Entre no Telegram do Canal:\n👉https://t.me/forehandbrasil\n\n\n\n🚫Nã...",
+    "fonte": "Forehand Brasil (YouTube)",
+    "url": "https://www.youtube.com/watch?v=E0fGOcQe4xI",
+    "quando": "24/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i2.ytimg.com/vi/E0fGOcQe4xI/hqdefault.jpg"
   },
   {
     "tema": "hxh",
     "principal": true,
-    "titulo": "O mangá voltou no verão e já está em nova pausa",
-    "resumo": "Depois de cerca de 18 meses parado desde o capítulo 410 (dezembro de 2024), Hunter x Hunter voltou à Weekly Shonen Jump com o capítulo 411 em 28 e 29 de junho de 2026, segundo Tokyo Weekender. A sequência durou 10 semana...",
-    "fonte": "tokyoweekender.com via last30days",
-    "url": "https://www.tokyoweekender.com/entertainment/anime-and-manga/hunter-x-hunter-manga-resumes-serialization/",
+    "titulo": "Togashi diz que vai priorizar os próprios manuscritos",
+    "resumo": "No início de outubro, Togashi publicou no X que, por problemas de saúde física e mental, depois dos compromissos atuais vai recusar pedidos com prazo e se concentrar nos próprios manuscritos. Ele disse que anunciaria a r...",
+    "fonte": "X via last30days",
+    "url": "https://x.com/gaak_fr/status/2107059294927495242",
     "quando": "Data não disponível",
     "data_estimada": true,
-    "chave_dedup": "last30days:6042c22539ed2246"
+    "chave_dedup": "last30days:4ab4c23b3003f8d8"
   },
   {
     "tema": "hxh",
     "principal": false,
-    "titulo": "Ainda não há data de retorno",
-    "resumo": "Segundo a FandomWire, os capítulos 428 a 430 estariam em fase final de produção. Também segundo a FandomWire, não há data anunciada. A mesma fonte especula que um anúncio de um lote no início de 2027 poderia vir por volt...",
-    "fonte": "fandomwire.com via last30days",
-    "url": "https://fandomwire.com/hunter-x-hunter-chapter-420-where-to-read-togashi-hiatus-duration-explained/",
+    "titulo": "O mangá voltou em 2026, depois de uma pausa longa",
+    "resumo": "Um post de @michael30909628 resume a linha do tempo: um hiato de cerca de um ano e meio entre o capítulo 410 (dezembro de 2024) e o 411 (junho de 2026). Cita que Togashi foi transparente sobre os motivos. A busca na web ...",
+    "fonte": "X via last30days",
+    "url": "https://x.com/michael30909628/status/2112870163880251734",
     "quando": "Data não disponível",
     "data_estimada": true,
-    "chave_dedup": "last30days:384ef41f261c5c3d"
+    "chave_dedup": "last30days:16c9bc65548f9fd0"
+  },
+  {
+    "tema": "hxh",
+    "principal": false,
+    "titulo": "ESSA É A ESCALA DE PODER DO MUNDO DE HXH! hunterxhunter #hxh #formigasquimera #continenteescuro #man",
+    "resumo": "ESSA É A ESCALA DE PODER DO MUNDO DE HXH! hunterxhunter #hxh #formigasquimera #continenteescuro #mangaq",
+    "fonte": "Anime & Mangá News",
+    "url": "https://www.youtube.com/shorts/jAmxmhP2gi8",
+    "quando": "24/10/2026",
+    "data_estimada": false,
+    "thumbnail_url": "https://i3.ytimg.com/vi/jAmxmhP2gi8/hqdefault.jpg"
   }
 ];
 // T-06: status por fonte (ok/erro/vazio) coletado durante a geração do mural
 // -- ver registrar_status_fonte()/resumo_status_texto() em generate_daily_mural.py.
 const STATUS_FONTES = {
   "GitHub Trending": {
-    "estado": "vazio",
-    "itens": 0,
+    "estado": "ok",
+    "itens": 2,
     "erro": null
   },
   "Código Fonte TV": {
@@ -470,6 +570,21 @@ const STATUS_FONTES = {
     "erro": null
   },
   "PodcasTIMÃO": {
+    "estado": "vazio",
+    "itens": 0,
+    "erro": null
+  },
+  "YouTimão": {
+    "estado": "vazio",
+    "itens": 0,
+    "erro": null
+  },
+  "Cortes do TIMÃO": {
+    "estado": "erro",
+    "itens": 0,
+    "erro": "not well-formed (invalid token): line 2, column 11"
+  },
+  "Corinthians TV": {
     "estado": "ok",
     "itens": 1,
     "erro": null
@@ -485,8 +600,8 @@ const STATUS_FONTES = {
     "erro": null
   },
   "Tênis Além do Óbvio": {
-    "estado": "vazio",
-    "itens": 0,
+    "estado": "ok",
+    "itens": 1,
     "erro": null
   },
   "Forehand Brasil": {
@@ -494,24 +609,14 @@ const STATUS_FONTES = {
     "itens": 1,
     "erro": null
   },
-  "Lucas Kneipp": {
-    "estado": "vazio",
-    "itens": 0,
-    "erro": null
-  },
   "last30days João Fonseca": {
     "estado": "ok",
     "itens": 2,
     "erro": null
   },
-  "GE Tênis": {
+  "Canal MangaQ": {
     "estado": "ok",
     "itens": 1,
-    "erro": null
-  },
-  "Canal MangaQ": {
-    "estado": "vazio",
-    "itens": 0,
     "erro": null
   },
   "Mangas Z": {
@@ -550,7 +655,7 @@ const STATUS_FONTES = {
     "erro": null
   }
 };
-const STATUS_FONTES_RESUMO = "⚠️ 11 fontes com problema: GitHub Trending (vazio), Código Fonte TV (vazio), Tênis Além do Óbvio (vazio), Lucas Kneipp (vazio), Canal MangaQ (vazio), Mangas Z (vazio), Mundo dos Caçadores (vazio), Dias de Nerd (erro), JBox (vazio), IGN Brasil (vazio), AnimeHunch (vazio)";
+const STATUS_FONTES_RESUMO = "⚠️ 10 fontes com problema: Código Fonte TV (vazio), PodcasTIMÃO (vazio), YouTimão (vazio), Cortes do TIMÃO (erro), Mangas Z (vazio), Mundo dos Caçadores (vazio), Dias de Nerd (erro), JBox (vazio), IGN Brasil (vazio), AnimeHunch (vazio)";
 
 // T-06: temas (id/label/emoji/cor) vêm de config/mural_temas.yaml via
 // montar_temas_para_template() -- nav, cor da tag e mapa de nomes são
